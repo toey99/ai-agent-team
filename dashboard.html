@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sri Krung & Personal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e4a8c 0%, #2d5aa0 100%);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            font-weight: 500;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            background: white;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .tab-nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 20px;
+            background: none;
+            border: none;
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        .tab-btn:hover {
+            background: #f5f7fa;
+            color: #1e4a8c;
+        }
+        
+        .tab-btn.active {
+            background: white;
+            color: #1e4a8c;
+            border-bottom: 3px solid #1e4a8c;
+            font-weight: 600;
+        }
+        
+        .tab-btn i {
+            font-size: 1.2em;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Section Cards */
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section-header i {
+            font-size: 1.5em;
+            color: #1e4a8c;
+        }
+        
+        .section-header h2 {
+            font-size: 1.3em;
+            color: #1e4a8c;
+            font-weight: 600;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #1e4a8c;
+            transition: transform 0.2s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat-box h4 {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .stat-box .number {
+            font-size: 2em;
+            font-weight: 600;
+            color: #1e4a8c;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        /* Task List */
+        .task-list {
+            list-style: none;
+        }
+        
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+        
+        .task-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        .task-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .task-checkbox:hover {
+            border-color: #1e4a8c;
+        }
+        
+        .task-checkbox.checked {
+            background: #1e4a8c;
+            border-color: #1e4a8c;
+            color: white;
+        }
+        
+        .task-content {
+            flex: 1;
+        }
+        
+        .task-title {
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        
+        .task-meta {
+            font-size: 0.85em;
+            color: #888;
+        }
+        
+        .task-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+        
+        .badge-urgent {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .badge-normal {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .badge-done {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .quick-link {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        
+        .quick-link:hover {
+            background: white;
+            border-color: #1e4a8c;
+            transform: translateY(-2px);
+        }
+        
+        .quick-link i {
+            font-size: 1.5em;
+            color: #1e4a8c;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .quick-link span {
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        /* Bazi Card */
+        .bazi-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #ffd700;
+            margin-bottom: 25px;
+        }
+        
+        .bazi-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #856404;
+        }
+        
+        .bazi-header i {
+            font-size: 1.5em;
+        }
+        
+        .element-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+        
+        .element-water { background: #e3f2fd; color: #1565c0; }
+        .element-wood { background: #e8f5e9; color: #2e7d32; }
+        .element-fire { background: #ffebee; color: #c62828; }
+        .element-earth { background: #fff3e0; color: #e65100; }
+        .element-metal { background: #f5f5f5; color: #424242; }
+        
+        /* Countdown */
+        .countdown-box {
+            background: linear-gradient(135deg, #1e4a8c 0%, #2d5aa0 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .countdown-box h3 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .countdown-timer {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tab-btn {
+                font-size: 0.9em;
+                padding: 15px 10px;
+            }
+            
+            .tab-btn i {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-timer {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fas fa-chart-line"></i> Dashboard</h1>
+                <p>จัดการงาน Sri Krung & ติดตามเรื่องส่วนตัว</p>
+            </div>
+            <div style="text-align: right;">
+                <p id="current-date"></p>
+                <p style="font-size: 0.85em; opacity: 0.8;">Bazi: <span id="today-bazi">กำลังโหลด...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-nav">
+        <div class="tab-nav-content">
+            <button class="tab-btn active" onclick="switchTab('work')">
+                <i class="fas fa-briefcase"></i>
+                <span>งาน Sri Krung</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('personal')">
+                <i class="fas fa-user"></i>
+                <span>งานส่วนตัว</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- WORK TAB -->
+        <div id="work-tab" class="tab-content active">
+            <!-- Countdown -->
+            <div class="countdown-box">
+                <h3><i class="fas fa-rocket"></i> Launch Countdown</h3>
+                <div class="countdown-timer" id="countdown">กำลังคำนวณ...</div>
+                <div class="countdown-label">เปิดตัว 27 กุมภาพันธ์ 2026 (วันมงคล ธาตุน้ำ)</div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>AI Chatbot</h4>
+                    <div class="number" style="color: #2e7d32;">✓</div>
+                    <div class="label">ใช้งานได้แล้ว</div>
+                </div>
+                <div class="stat-box">
+                    <h4>Landing Page</h4>
+                    <div class="number" style="color: #2e7d32;">✓</div>
+                    <div class="label">Deploy แล้ว</div>
+                </div>
+                <div class="stat-box">
+                    <h4>LINE OA</h4>
+                    <div class="number" style="color: #2e7d32;">✓</div>
+                    <div class="label">@vax7479a พร้อมใช้</div>
+                </div>
+                <div class="stat-box">
+                    <h4>งานค้าง</h4>
+                    <div class="number">3</div>
+                    <div class="label">รอดำเนินการ</div>
+                </div>
+            </div>
+
+            <!-- Tasks -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-tasks"></i>
+                    <h2>งานที่ต้องทำ - สัปดาห์หน้า</h2>
+                </div>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">Data Scraper ประกันภัย</div>
+                            <div class="task-meta">ให้จินรุ่ยเก็บข้อมูล 30+ บริษัทประกัน</div>
+                        </div>
+                        <span class="task-badge badge-normal">สัปดาห์หน้า</span>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">เชื่อมต่อ LINE Rich Menu</div>
+                            <div class="task-meta">กดปุ่ม 1, 2, 3 แล้วบอทตอบตาม Flow</div>
+                        </div>
+                        <span class="task-badge badge-normal">สัปดาห์หน้า</span>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">Analytics & Logs</div>
+                            <div class="task-meta">วิเคราะห์คำถามลูกค้าที่ถามบ่อย</div>
+                        </div>
+                        <span class="task-badge badge-normal">สัปดาห์หน้า</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-link"></i>
+                    <h2>ลิงก์สำคัญ</h2>
+                </div>
+                <div class="quick-links">
+                    <a href="https://toey99.github.io/srikrung-landing" class="quick-link" target="_blank">
+                        <i class="fas fa-globe"></i>
+                        <span>Landing Page</span>
+                    </a>
+                    <a href="https://dashboard.render.com" class="quick-link" target="_blank">
+                        <i class="fas fa-server"></i>
+                        <span>Render Dashboard</span>
+                    </a>
+                    <a href="https://developers.line.biz/console/" class="quick-link" target="_blank">
+                        <i class="fab fa-line"></i>
+                        <span>LINE Console</span>
+                    </a>
+                    <a href="https://github.com/toey99/ai-agent-team" class="quick-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Repo</span>
+                    </a>
+                    <a href="https://console.anthropic.com/" class="quick-link" target="_blank">
+                        <i class="fas fa-robot"></i>
+                        <span>Anthropic Console</span>
+                    </a>
+                    <a href="https://insure.724.co.th/u/AM00441133" class="quick-link" target="_blank">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>ซื้อประกัน 724</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Launch Checklist -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h2>Checklist ก่อนเปิดตัว (27 ก.พ. 2026)</h2>
+                </div>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <div class="task-checkbox checked" onclick="toggleTask(this)"><i class="fas fa-check"></i></div>
+                        <div class="task-content">
+                            <div class="task-title">Landing Page พร้อม</div>
+                        </div>
+                        <span class="task-badge badge-done">เสร็จ</span>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox checked" onclick="toggleTask(this)"><i class="fas fa-check"></i></div>
+                        <div class="task-content">
+                            <div class="task-title">AI Chatbot ตอบได้</div>
+                        </div>
+                        <span class="task-badge badge-done">เสร็จ</span>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox checked" onclick="toggleTask(this)"><i class="fas fa-check"></i></div>
+                        <div class="task-content">
+                            <div class="task-title">LINE OA พร้อมใช้</div>
+                        </div>
+                        <span class="task-badge badge-done">เสร็จ</span>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">Google Ads 200 บาท/วัน</div>
+                        </div>
+                        <span class="task-badge badge-urgent">รอเปิด</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PERSONAL TAB -->
+        <div id="personal-tab" class="tab-content">
+            <!-- Bazi Section -->
+            <div class="bazi-card">
+                <div class="bazi-header">
+                    <i class="fas fa-yin-yang"></i>
+                    <h2>Bazi วันนี้ - <span id="bazi-date"></span></h2>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <span class="element-indicator element-water">💧 น้ำ</span>
+                    <span style="color: #666; font-size: 0.9em;">ธาตุประจำวันนี้</span>
+                </div>
+                <p style="color: #666; line-height: 1.6;">
+                    <strong>คำแนะนำ:</strong> วันนี้ธาตุน้ำแข็งแกร่ง เหมาะกับการวางแผน คิดกลยุทธ์ 
+                    และทำงานที่ต้องใช้สติปัญญา งานด้านการตลาดและการสื่อสารจะราบรื่น 
+                    ธาตุถูกโชคของคุณคือ <span class="element-indicator element-water">น้ำ</span> 
+                    <span class="element-indicator element-wood">ไม้</span> 
+                    <span class="element-indicator element-metal">โลหะ</span>
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>น้ำหนักเป้าหมาย</h4>
+                    <div class="number">55</div>
+                    <div class="label">kg (สืออันดูแล)</div>
+                </div>
+                <div class="stat-box">
+                    <h4>90-Day Visa</h4>
+                    <div class="number" style="color: #c62828;">!</div>
+                    <div class="label">รอทำรายงาน</div>
+                </div>
+                <div class="stat-box">
+                    <h4>การลงทุน</h4>
+                    <div class="number">-</div>
+                    <div class="label">รอวิเคราะห์ (จินรุ่ย)</div>
+                </div>
+                <div class="stat-box">
+                    <h4>ภาษาจีน</h4>
+                    <div class="number">HSK</div>
+                    <div class="label">กำลังเตรียมสอบ</div>
+                </div>
+            </div>
+
+            <!-- Health Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-heartbeat"></i>
+                    <h2>สุขภาพ & Wellness (สืออัน)</h2>
+                </div>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">Calisthenics Routine วันนี้</div>
+                            <div class="task-meta">เป้าหมาย: Strict Pull-up + Walking Pad 30 นาที</div>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">Real Food Meal Plan</div>
+                            <div class="task-meta">Low-carb / High Good Fat</div>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">น้ำหนักวันนี้</div>
+                            <div class="task-meta">บันทึกใน Progress Log</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Visa Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-passport"></i>
+                    <h2>90-Day Visa Report</h2>
+                </div>
+                <div style="background: #fff3e0; border-left: 4px solid #e65100; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong>⚠️ งานค้าง:</strong> รอ Template และข้อมูลจากบอสเพื่อสร้างรายงาน
+                </div>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">รวบรวมข้อมูลการเข้าออกประเทศ</div>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">จัดทำรายงานตามแบบฟอร์ม</div>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                        <div class="task-content">
+                            <div class="task-title">ส่งให้เหวินหลินตรวจสอบ (ภาษาจีน)</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Trading Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>การลงทุน (จินรุ่ย)</h2>
+                </div>
+                <div class="stats-grid" style="margin-bottom: 15px;">
+                    <div class="stat-box" style="border-left-color: #ffd700;">
+                        <h4>XAU/USD</h4>
+                        <div class="number" style="font-size: 1.5em;">รอข้อมูล</div>
+                        <div class="label">จาก TradingView</div>
+                    </div>
+                    <div class="stat-box" style="border-left-color: #ffd700;">
+                        <h4>BTC/USD</h4>
+                        <div class="number" style="font-size: 1.5em;">รอข้อมูล</div>
+                        <div class="label">จาก Binance</div>
+                    </div>
+                </div>
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px;">
+                    <strong>กฎการเทรด (SMC):</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px; color: #555;">
+                        <li>SL: 600 points (เคร่งครัด)</li>
+                        <li>TP: 1000 points (เคร่งครัด)</li>
+                        <li>ขาดสองอย่างนี้ = ไม่เข้าออเดอร์</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Daily Bazi -->
+            <div class="section-card">
+                <div class="section-header">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2>Daily Bazi Schedule</h2>
+                </div>
+                <p style="color: #666; margin-bottom: 15px;">
+                    ตั้งค่าให้รันทุกวันเวลา 07:30 AM ก่อนเริ่มงาน
+                </p>
+                <div class="quick-links">
+                    <div class="quick-link" style="cursor: default;">
+                        <i class="fas fa-sun" style="color: #ffd700;"></i>
+                        <span>07:30 AM - Bazi Daily</span>
+                    </div>
+                    <div class="quick-link" style="cursor: default;">
+                        <i class="fas fa-newspaper" style="color: #1e4a8c;"></i>
+                        <span>08:00 AM - News RSS</span>
+                    </div>
+                    <div class="quick-link" style="cursor: default;">
+                        <i class="fas fa-coins" style="color: #ffd700;"></i>
+                        <span>12:00 PM - XAU Update</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab Switching
+        function switchTab(tabName) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to selected tab
+            event.target.closest('.tab-btn').classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+
+        // Task Toggle
+        function toggleTask(checkbox) {
+            checkbox.classList.toggle('checked');
+            if (checkbox.classList.contains('checked')) {
+                checkbox.innerHTML = '<i class="fas fa-check"></i>';
+            } else {
+                checkbox.innerHTML = '';
+            }
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const launchDate = new Date('2026-02-27T09:00:00');
+            const now = new Date();
+            const diff = launchDate - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('countdown').textContent = 
+                    `${days} วัน ${hours} ชม. ${minutes} นาที`;
+            } else {
+                document.getElementById('countdown').textContent = 'เปิดตัวแล้ว! 🎉';
+            }
+        }
+
+        // Current Date
+        function updateDate() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                weekday: 'long'
+            };
+            document.getElementById('current-date').textContent = 
+                now.toLocaleDateString('th-TH', options);
+            document.getElementById('bazi-date').textContent = 
+                now.toLocaleDateString('th-TH', options);
+        }
+
+        // Bazi Element (Simple calculation for demo)
+        function updateBazi() {
+            const now = new Date();
+            const day = now.getDate();
+            const elements = ['น้ำ', 'ไม้', 'ไฟ', 'ดิน', 'ทอง'];
+            const element = elements[day % 5];
+            document.getElementById('today-bazi').textContent = element;
+        }
+
+        // Initialize
+        updateCountdown();
+        updateDate();
+        updateBazi();
+        setInterval(updateCountdown, 60000); // Update every minute
+    </script>
+</body>
+</html>
