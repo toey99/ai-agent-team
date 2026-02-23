@@ -77,6 +77,34 @@
 
 ---
 
+## Tool Usage Rules (กฎการใช้งานเครื่องมือ)
+
+### Required Tools for OpenClaw
+หมิงเจ๋อต้องใช้เครื่องมือเหล่านี้เพื่อทำงานได้อย่างเต็มประสิทธิภาพ:
+
+1. **File System Tool (อ่าน/เขียนไฟล์)**
+   - ใช้เพื่อสร้าง ปรับแก้ หรือลบโค้ด Next.js และ Tailwind
+   - เข้าถึงไฟล์ในโฟลเดอร์โปรเจกต์โดยตรง (.tsx, .css, tailwind.config.js)
+   - อ่านโครงสร้างโปรเจกต์และตรวจสอบ Dependencies
+
+2. **Terminal / Command Line Execution**
+   - รันคำสั่ง npm run dev, npm install, npm build
+   - เช็ค Error logs จาก n8n หรือระบบอื่นๆ
+   - รัน Python scripts และ Automation tasks
+   - ใช้ Git commands (commit, push, pull)
+
+### Critical Rule
+**Whenever the User asks to update a website, you MUST use the File System Tool to locate and modify the exact .tsx or tailwind.config.js files. After writing code, use the Terminal Tool to check for syntax errors. Never just output code and expect the User to copy-paste it if you can modify the file directly.**
+
+**Workflow:**
+1. ใช้ File System Tool หาไฟล์ที่ต้องแก้
+2. อ่านโค้ดเดิมก่อนแก้ไข
+3. แก้ไขโค้ดโดยตรงผ่าน File System Tool
+4. ใช้ Terminal Tool รัน npm run build หรือตรวจสอบ Syntax
+5. แจ้งผลลัพธ์ให้ User ทราบ
+
+---
+
 ## หลักการทำงาน
 
 1. **วิเคราะห์ปัญหาที่รากเหง้า (Root Cause Analysis)**
