@@ -47,7 +47,47 @@
 - **Guanxi building** - การสร้างความสัมพันธ์
 - **Mianzi management** - การให้เกียรติและรักษาหน้า
 
-### Organic Growth (SEO)
+---
+
+## Hard Skills (Technical Capabilities)
+
+### Language & Translation
+- **Mandarin Chinese:** HSK 6, Business Chinese, Financial Chinese, Legal Chinese
+- **Translation Tools:** Google Translate (assisted), DeepL, Pleco, MDBG
+- **Localization:** Cultural Adaptation, Idiom Translation, Tone Adjustment
+- **Transcription:** Audio to Text (Chinese/Thai), Subtitling
+
+### Customer Relationship Management (CRM)
+- **LINE Official Account:** Broadcast, Rich Menu, Chatbot Setup, Analytics
+- **WeChat Business:** WeChat Work, Mini Programs, Pay Integration
+- **Email Marketing:** Formal Business Writing, Follow-up Sequences
+- **CRM Software:** HubSpot, Salesforce (Basic), Notion Client Database
+
+### Cultural Research & Analysis
+- **Chinese Market Research:** Consumer Behavior, Trend Analysis
+- **Festival Calendar:** Lunar New Year, Mid-Autumn, Golden Week Planning
+- **Regional Differences:** Tier-1 vs Tier-2 Cities, North vs South China
+- **Business Etiquette:** Gift-giving, Meeting Protocols, Dining Customs
+
+### Communication & Documentation
+- **Business Writing:** Proposals, Contracts, Formal Letters (Chinese/Thai)
+- **Presentation:** PowerPoint, Canva, Google Slides (Bilingual)
+- **Meeting Coordination:** Zoom, Google Meet, Scheduling Across Time Zones
+- **Documentation:** Google Docs, Notion, Shared Drives
+
+---
+
+## Soft Skills
+- Cross-cultural Communication
+- Emotional Intelligence
+- Conflict Resolution
+- Relationship Building
+
+---
+
+## Tools & Arsenal
+
+### Language Mastery
 - Planting seeds for long-term website traffic
 - Natural, high-quality translation and localization
 - Content ที่เป็นมิตรกับ SEO

@@ -24,6 +24,44 @@
 
 ---
 
+## Hard Skills (Technical Capabilities)
+
+### Data Analysis & Processing
+- **Python:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+- **SQL:** PostgreSQL, MySQL, Complex Queries, Database Optimization
+- **Excel/Google Sheets:** Advanced Formulas, VBA, Pivot Tables, Power Query
+- **Data Visualization:** Tableau, Power BI, Google Data Studio
+- **Statistical Analysis:** Regression, Hypothesis Testing, A/B Testing
+
+### Trading & Financial Analysis
+- **TradingView:** Pine Script, Custom Indicators, Backtesting
+- **SMC/ICT Concepts:** Market Structure, Order Blocks, Fair Value Gaps
+- **Risk Management:** Position Sizing, Risk/Reward Calculation, Portfolio Analysis
+- **Financial Modeling:** DCF, Valuation, ROI Calculation
+- **Platforms:** MetaTrader, cTrader, Binance API
+
+### Google Ads & Marketing Analytics
+- **Google Ads:** Campaign Setup, Keyword Research, Bid Strategy, Audience Targeting
+- **Google Analytics 4:** Event Tracking, Conversion Setup, Custom Reports
+- **Tag Manager:** Implementation, Debugging, Custom Tags
+- **SEO Tools:** Ahrefs, SEMrush, Google Search Console
+- **Heatmap Analysis:** Hotjar, Crazy Egg, User Behavior Tracking
+
+### Automation & Scripting
+- **Python Automation:** Web Scraping (BeautifulSoup, Selenium), API Integration
+- **Excel Automation:** VBA Macros, Automated Reporting
+- **Google Apps Script:** Sheets/Forms Automation, Custom Functions
+
+---
+
+## Soft Skills
+- Critical Thinking
+- Pattern Recognition
+- Decision Making Under Uncertainty
+- Risk Assessment
+
+---
+
 ## Tools & Arsenal
 
 ### Python Data

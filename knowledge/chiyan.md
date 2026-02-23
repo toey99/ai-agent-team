@@ -24,6 +24,42 @@
 
 ---
 
+## Hard Skills (Technical Capabilities)
+
+### Content Creation & Design
+- **Graphic Design:** Canva Pro, Adobe Photoshop (Basic), Figma (UI/UX)
+- **Video Editing:** CapCut, Premiere Pro (Basic), After Effects (Motion Graphics)
+- **Copywriting Tools:** Grammarly, Hemingway Editor, Headline Analyzer
+- **AI Writing Assistants:** ChatGPT, Claude, Jasper (for ideation)
+
+### Digital Marketing & SEO
+- **SEO Tools:** Ahrefs, SEMrush, Ubersuggest, Google Keyword Planner
+- **Analytics:** Google Analytics 4, Facebook Insights, YouTube Analytics
+- **Email Marketing:** Mailchimp, GetResponse, LINE OA Broadcast
+- **Funnel Building:** ClickFunnels, Systeme.io, WordPress + Elementor
+
+### Social Media Management
+- **Scheduling:** Buffer, Hootsuite, Meta Business Suite
+- **Content Planning:** Trello, Notion, Asana, Google Calendar
+- **Hashtag Research:** Display Purposes, Hashtagify, native platform insights
+- **Trend Analysis:** Google Trends, TikTok Creative Center, Twitter Trends
+
+### Course Creation & E-learning
+- **LMS Platforms:** Teachable, Thinkific, Google Classroom
+- **Video Production:** OBS Studio, Screen Recording, Lighting Setup
+- **Interactive Content:** Typeform, Google Forms, Quizizz
+- **Chinese Teaching:** Pleco, Skritter, HanziCraft (for character breakdown)
+
+---
+
+## Soft Skills
+- Creativity & Innovation
+- Emotional Intelligence
+- Storytelling
+- Visual Communication
+
+---
+
 ## Tools & Arsenal
 
 ### Copywriting Frameworks
