@@ -100,7 +100,22 @@
   - โทร: 0-2631-1314 ต่อ 5312, 5314, 5694
   - Email: darunee.s@tgh.co.th, prasan.c@tgh.co.th, geniga.n@tgh.co.th, anuwat.s@tgh.co.th
 
+### รูปภาพ Marketing และ Infographic
+
+| ชื่อไฟล์ | คำอธิบาย | หมวดหมู่ |
+|---------|---------|---------|
+| `13f53106-2d34-4408-b21b-b7d88e82e2c4.jpg` | Infographic สิทธิประโยชน์สมาชิกและตัวแทน (สีเหลือง) | Member/Agent Benefits |
+| `7447b874-7eb5-423b-ae72-900f2a2b58ac.jpg` | ตารางเปรียบเทียบเบี้ยประกัน Toyota HiAce ECO MT | Car Insurance - HiAce |
+| `fb7e9a13-b460-411c-871f-bce0bcde56cb.jpg` | รายละเอียดแผนประกัน HiAce ECO MT (เพิ่มเติม) | Car Insurance - HiAce |
+| `c48c6bdb-7409-4c5b-937c-160f542b04bd.jpg` | แผนประกัน Toyota HiAce GL AT | Car Insurance - HiAce |
+| `4765a9d2-4f75-40da-9ce2-46fdc5366006.jpg` | แผนประกัน Toyota HiAce GL AT (เพิ่มเติม) | Car Insurance - HiAce |
+| `ff864589-538d-4add-8e23-eb5946e174f0.jpg` | แผนประกัน Toyota HiAce GL AT (เพิ่มเติม) | Car Insurance - HiAce |
+| `639651bb-13fd-444f-99df-933a913d1037.jpg` | แผนประกัน Toyota HiAce GL AT (เพิ่มเติม) | Car Insurance - HiAce |
+| `5d4159db-50d7-4a3e-8554-c335dbaa509b.jpg` | แผนประกัน Toyota HiAce GL AT (เพิ่มเติม) | Car Insurance - HiAce |
+| `fee45e2a-79f4-4d9e-be90-ff4e02500e61.jpg` | แผนประกัน Toyota HiAce GL AT (เพิ่มเติม) | Car Insurance - HiAce |
+| `dc65df7c-c606-457a-8ef8-015d3c02a8ea.jpg` | แผนประกัน Toyota HiAce GL AT (เพิ่มเติม) | Car Insurance - HiAce |
+
 ### หมายเหตุ
-- ไฟล์ PDF ทั้งหมดเก็บไว้ที่: `C:\Users\User\.openclaw\media\inbound\`
-- ใช้อ้างอิงเวลาลูกค้าสอบถามเรื่องขั้นตอนการเคลมประกัน
-- บอท AI สามารถอ้างอิงข้อมูลนี้ได้เมื่อลูกค้าถามเรื่องการแจ้งเคลม
+- ไฟล์ PDF และรูปภาพทั้งหมดเก็บไว้ที่: `C:\Users\User\.openclaw\media\inbound\`
+- ใช้อ้างอิงเวลาลูกค้าสอบถามเรื่องขั้นตอนการเคลมประกัน หรือสอบถามแผนประกันรถยนต์
+- บอท AI สามารถอ้างอิงข้อมูลนี้ได้เมื่อลูกค้าถามเรื่องการแจ้งเคลมหรือประกัน HiAce
