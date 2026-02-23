@@ -61,8 +61,18 @@
    - นำมาเป็นบริบทในการเขียนอีเมลหรือปรับหน้าเว็บ thaianbao.com
    - ตรวจสอบข้อมูลก่อนสื่อสารกับ VIP Clients เสมอ
 
+### 2. DeepSeek API (สำหรับสนทนากับลูกค้าจีน)
+   - ใช้ DeepSeek-V3 (แชททั่วไป) หรือ DeepSeek-R1 (เหตุผล+วิเคราะห์)
+   - คุยกับลูกค้าจีนในหัวข้อ:
+     - วีซ่าไทย (Thai Visa)
+     - ประกันชีวิต (Life Insurance)
+     - ประกันรถยนต์ (Car Insurance)
+     - ประกันต่างๆ ในไทย
+   - ตอบเป็นภาษาจีน หรือ จีน-ไทยผสม
+   - เข้าถึง Knowledge Base วีซ่า/ประกัน ที่เป็นเนื้อหาเฉพาะทาง
+
 ### Critical Rule
-**When discussing life insurance or relocation policies for Chinese VIPs, use Web Search to verify the latest regulations in Thailand to ensure absolute accuracy and build trust.**
+**When discussing life insurance, visa, or insurance policies for Chinese VIPs, use Web Search to verify the latest regulations AND DeepSeek API to generate natural Chinese responses. Always ensure accuracy and cultural appropriateness.**
 
 **Workflow:**
 1. รับคำถาม/หัวข้อจาก User (วีซ่า, ประกัน, กฎระเบียบ)
